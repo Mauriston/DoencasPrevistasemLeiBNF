@@ -24,10 +24,10 @@ export const Header: React.FC<HeaderProps> = ({ title, leftAction, rightAction, 
   }, []);
 
   return (
-    <header
+    <header 
       className={`w-full sticky top-0 z-50 h-[56px] flex items-center justify-between px-1 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#050F41] shadow-md'
+        isScrolled 
+          ? 'bg-[#050F41] shadow-md' 
           : 'bg-[#050F41] shadow-sm'
       }`}
     >
@@ -58,9 +58,9 @@ export const Header: React.FC<HeaderProps> = ({ title, leftAction, rightAction, 
           </div>
         )}
         <div className="w-[32px] h-[32px] flex items-center justify-center bg-white rounded-md p-1 shadow-sm ml-1">
-          <img
-            src="https://i.imgur.com/KUbQz08.png"
-            alt="HNRe Logo"
+          <img 
+            src="https://i.imgur.com/KUbQz08.png" 
+            alt="HNRe Logo" 
             className="h-full w-full object-contain"
           />
         </div>

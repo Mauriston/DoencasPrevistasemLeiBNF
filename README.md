@@ -1,21 +1,25 @@
 # Doenças Previstas em Lei — BNF
 
-Aplicação web progressiva (PWA, mobile-first) que funciona como um **"Livro de Bolso"** de acesso instantâneo ao rol de doenças previstas nas legislações que garantem isenções ou amparam reformas na esfera civil-militar.
+Aplicação web progressiva (PWA, mobile-first) para a **Junta Regular de Saúde (JRS) do Hospital Naval de Recife (HNRe)**, focada na consulta a doenças previstas em lei, normativas, avaliações e material de estudo.
 
-Este projeto é a versão **standalone** do módulo *Doenças de Lei*, originalmente parte do [Guia Médico Naval — JRS/HNRe](https://github.com/Mauriston/DoencasEPareceresJRS).
+Este projeto é uma **versão reduzida** do [Guia Médico Naval — JRS/HNRe](https://github.com/Mauriston/DoencasEPareceresJRS). Em relação ao app completo, **não inclui**:
+
+- **Menu Documentos** e suas páginas/funções (Pareceres, Perícia Menor, Mensagens) — e, com isso, as integrações de backend (Google Apps Script, Gemini/IA, Firebase) que as alimentavam.
+- Item **HNRe** do menu Normas e suas páginas (Regimento Interno, Ordem Interna da JRS).
+- Item **Roteiro JRS** do menu Extras e suas páginas.
+
+> O item **Templates**, que no app original ficava no menu Documentos, foi **movido para o menu Normas**.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- **Consulta rápida:** lista expansível de patologias com pesquisa livre em tempo real por **doença, diagnóstico ou critério**.
-- **Detalhamento pericial:** para cada doença, exibe a **Definição**, os **Critérios de Gravidade** (por diagnóstico) e a **Documentação exigida** para reconhecimento.
-- **Calculadora de CDR:** *Clinical Dementia Rating* validada em português, integrada ao diagnóstico de Demência (Alienação Mental). Calcula o Escore Global e o CDR-SB.
-- **Exportação:** copiar o conteúdo para a área de transferência ou **baixar em PDF** (`jspdf`).
+A navegação ocorre via *Single Page Application* (hook `currentView` em `App.tsx`), com barra inferior de 4 blocos:
 
-### Doenças cobertas
-
-Alienação Mental · Cardiopatia Grave · Cegueira · Contaminação por Radiação · Doença de Parkinson · Esclerose Múltipla · Espondilite Anquilosante · Doença de Paget · Fibrose Cística · Hanseníase · Hepatopatia Grave · Nefropatia Grave · Neoplasia Maligna · Paralisia Irreversível e Incapacitante · Pênfigo · SIDA/AIDS · Tuberculose Ativa.
+1. **Benefícios** (*estetoscópio*): `Doenças de Lei` (com Calculadora de CDR), `Finalidades` da perícia e `Portaria`.
+2. **Avaliações** (*prancheta*): critérios eliminatórios para `Concursos` e `Exames` obrigatórios.
+3. **Normas** (*martelo*): `DGPM-406`, `Legislação` e `Templates`.
+4. **Extras** (*widgets*): `Casos` interativos, `Estudo`, `Infográficos` e `Resumos`.
 
 ---
 
@@ -28,18 +32,6 @@ Alienação Mental · Cardiopatia Grave · Cegueira · Contaminação por Radia�
 
 ---
 
-## 📁 Estrutura
-
-- `index.html` — index da PWA (config Tailwind, fontes, importmap)
-- `index.tsx` — entry point React
-- `App.tsx` — monta o `DiseaseGuide`
-- `types.ts` — tipos `Disease` e `Diagnosis`
-- `constants.ts` — banco de dados estático das doenças
-- `components/DiseaseGuide.tsx` — guia de doenças + calculadora CDR
-- `components/Header.tsx` — cabeçalho institucional
-
----
-
 ## ▶️ Como rodar
 
 ```bash
@@ -48,3 +40,7 @@ npm run dev      # servidor de desenvolvimento (porta 3000)
 npm run build    # build de produção em /dist
 npm run preview  # pré-visualizar o build
 ```
+
+## 🚀 Deploy
+
+O workflow `.github/workflows/deploy.yml` publica automaticamente no GitHub Pages a cada push na branch `main` (base configurada em `vite.config.ts` como `/DoencasPrevistasemLeiBNF/`).

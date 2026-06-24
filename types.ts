@@ -1,4 +1,5 @@
 // Ficheiro: types.ts
+export type NavItem = 'splash' | 'guide' | 'laws' | 'dgpm406' | 'dgpm406-anexos' | 'concursos' | 'portaria' | 'finalidades' | 'exames' | 'infograficos' | 'resumos' | 'templates' | 'artigos' | 'artigo-pericia' | 'artigo-perfil' | 'artigo-administrativa' | 'artigo-psiquiatria' | 'casos' | 'estudo';
 
 export interface Diagnosis {
   name: string;
@@ -11,4 +12,12 @@ export interface Disease {
   definition: string;
   documents: string[];
   diagnoses: Diagnosis[];
+}
+
+export interface Law {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  keyArticles: string[];
 }

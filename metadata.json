@@ -1,5 +1,5 @@
 {
   "name": "Doenças Previstas em Lei — BNF",
-  "description": "Livro de bolso digital com o rol de doenças previstas em lei que garantem isenções ou amparam reformas, com critérios diagnósticos, documentação exigida e Calculadora de CDR (Clinical Dementia Rating) integrada.",
+  "description": "Guia médico pericial da Junta Regular de Saúde (JRS/HNRe) focado em doenças previstas em lei, normativas, avaliações e material de estudo. Versão reduzida, sem os módulos de geração de documentos.",
   "requestFramePermissions": []
 }
