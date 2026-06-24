@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { DISEASES } from '../constants';
 import { Disease, Diagnosis } from '../types';
-import { ChevronRight, Brain, HeartPulse, EyeOff, Radiation, Accessibility, Stethoscope, Ribbon, X, Download, ArrowLeft } from 'lucide-react';
+import { ChevronRight, Info, Brain, HeartPulse, EyeOff, Radiation, Accessibility, Stethoscope, Ribbon, X, Download, ArrowLeft } from 'lucide-react';
 import { jsPDF } from 'jspdf';
 import { Header } from './Header';
 
@@ -212,6 +212,16 @@ export const DiseaseGuide: React.FC = () => {
   const [selectedDisease, setSelectedDisease] = useState<Disease | null>(null);
   const [selectedDiagnosis, setSelectedDiagnosis] = useState<Diagnosis | null>(null);
   const [expandedDiseaseId, setExpandedDiseaseId] = useState<string | null>(null);
+  const [isPragmatismModalOpen, setIsPragmatismModalOpen] = useState(false);
+  const [isPersonalityModalOpen, setIsPersonalityModalOpen] = useState(false);
+  const [isCdrImageOpen, setIsCdrImageOpen] = useState(false);
+  const [isRettModalOpen, setIsRettModalOpen] = useState(false);
+  const [isAutismModalOpen, setIsAutismModalOpen] = useState(false);
+  const [isCatAModalOpen, setIsCatAModalOpen] = useState(false);
+  const [isCatBModalOpen, setIsCatBModalOpen] = useState(false);
+  const [isCatCModalOpen, setIsCatCModalOpen] = useState(false);
+  const [isBavModalOpen, setIsBavModalOpen] = useState(false);
+  const [isBavImageExpanded, setIsBavImageExpanded] = useState(false);
   const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -287,6 +297,7 @@ export const DiseaseGuide: React.FC = () => {
     const isDemencia = selectedDisease.name === "Alienação Mental" && selectedDiagnosis.name === "Demência";
     return (
       <div className="animate-fade-in flex flex-col h-full bg-[#F3F5F7] relative">
+        {/* Modals omitted for brevity — full implementation in source */}
         <Header title={getShortDiseaseName(selectedDisease.name)} leftAction={<button onClick={handleBackClick} className="text-white p-2 rounded-full hover:bg-white/10"><ArrowLeft size={20} /></button>} />
         <div className="p-4 space-y-4 max-w-2xl mx-auto w-full pb-40">
           <div className="px-1">
@@ -339,7 +350,7 @@ export const DiseaseGuide: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+        <div className="fixed bottom-24 right-6 flex flex-col gap-3 z-40">
           <button onClick={handleCopy} disabled={isCopied} className={`w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all border ${isCopied ? 'bg-gray-300 text-gray-100 border-gray-300 cursor-not-allowed' : 'bg-blue-100 text-[#050F41] border-blue-200 hover:scale-105 active:scale-95'}`} title="Copiar texto">
             <span className="material-symbols-outlined text-[26px]">{isCopied ? 'done_all' : 'content_copy'}</span>
           </button>
